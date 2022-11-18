@@ -43,10 +43,9 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
     ];
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        
         foreach (self::PROGRAM as $key => $programValue) {
-            # code...
+
             $program = new Program();
             $program->setTitle($programValue['title']);
             $program->setSynopsis($programValue['synopsis']);
@@ -54,11 +53,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             $program->setCategory($this->getReference($programValue['category']));
             $manager->persist($program);
         }
-        // $program = new Program();
-        // $program->setTitle($key['title']);
-        // $program->setSynopsis('Des zombies envahissent la terre');
-        // $program->setCategory($this->getReference('category_Action'));
-        // $manager->persist($program);
+     
         $manager->flush();
 
     }
