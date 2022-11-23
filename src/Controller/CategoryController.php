@@ -25,7 +25,7 @@ class CategoryController extends AbstractController
     #[Route('/{name}', name: 'show')]
     public function show(Category $category, ProgramRepository $programRepository): Response
     {
-        $programs = $programRepository->findBy(['category' => $category], null, 3, 0);
+        $programs = $programRepository->findBy(['category' => $category], ['id' => 'DESC'], 3, 0);
 
         if (count($programs) < 1) {
             throw $this->createNotFoundException();

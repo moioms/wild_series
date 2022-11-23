@@ -11,6 +11,11 @@
             <p>Catégorie : {{ program.category.name }}</p>
         </div>
     </div>
+    <div>
+        {% for season in seasons %}
+            <a href="/program/{{program.id}}/season/{{season.id}}">saison {{season.number}}</a><br>
+        {% endfor %}
+    </div>
     
     <a href="{{ path('program_index') }}">
         Retour à la liste des programmes
